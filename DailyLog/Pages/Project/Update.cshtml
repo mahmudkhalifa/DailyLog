@@ -1,0 +1,34 @@
+﻿@page "{id:min(1)}"
+@model DailyLog.UpdateModel
+@{
+    ViewData["Title"] = "Update";
+}
+<h1>Update</h1>
+<form class="was-validated" method="post" enctype="multipart/form-data">
+    <input hidden asp-for="Project.Id" />
+    <input hidden asp-for="Project.ImagePath" />
+    <div class="mb-3">
+        <label asp-for="Project.Title"></label>
+        <input asp-for="Project.Title" class="form-control is-invalid" id="validationTextarea" placeholder="Project Title"></in>
+        <span asp-validation-for="Project.Title"></span>
+    </div>
+    <div class="custom-file">
+        <input asp-for="Photo" accept="image/*" class="custom-file-input" id="validatedCustomFile" required>
+        <label  class="custom-file-label" for="validatedCustomFile">Choose Photo</label>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-success" type="submit">Add</button>
+    </div>
+</form>
+
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+            $('.custom-file-input').on("change",
+                function() {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).next('.custom-file-label').html(fileName);
+                });
+        });
+    </script>
+}

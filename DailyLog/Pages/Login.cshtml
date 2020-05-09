@@ -1,0 +1,24 @@
+﻿@page
+@model DailyLog.LoginModel
+@{
+    ViewData["Title"] = "Login";
+    <link rel="stylesheet" href="~/css/login.css" />
+} 
+
+<form class="form-signin" asp-page-handler="Task" method="post">
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">login</h1>
+    </div>
+
+    <div class="form-label-group">
+        <input asp-for="user.Email" class="form-control" placeholder="Email address" required autofocus>
+        <label asp-for="user.Email">Email address</label>
+    </div>
+
+    <div class="form-label-group">
+        <input type="password" asp-for="user.Password" class="form-control" placeholder="Password" required>
+        <label asp-for="user.Password">Password</label>
+    </div>
+
+    <button class="btn btn-lg btn-success btn-block" type="submit">login</button>
+</form>

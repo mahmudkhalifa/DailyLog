@@ -1,0 +1,113 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.kh {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, #08a74a9a, #0977528a), url("../images/log.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    clip-path: polygon(0 0,100% 0,100% 75vh,0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.logo {
+    height: 40px;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.primary-heading {
+    color: aliceblue;
+    text-transform: uppercase;
+}
+
+.primary-heading-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 44px;
+}
+
+.primary-heading-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 12px;
+}
+
+.bg-green {
+    background-image: linear-gradient(to right bottom, #7ed56f9a, #28b4858a);
+}
+
+
+.btn-signup {
+    color: #000000;
+    border-color: #68c57d;
+    background-color: white;
+}
+.footer {
+    position: absolute;
+    bottom: auto;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+

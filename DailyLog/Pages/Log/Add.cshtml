@@ -1,0 +1,46 @@
+﻿@page "{id?}"
+@model DailyLog.AddModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add</h1>
+
+<form class="was-validated" method="post">
+
+    <input hidden asp-for="Log.Id" />
+
+    <div class="mb-3">
+        <select asp-for="Log.ProjectId" class="custom-select">
+            <option selected>Select Project</option>
+            @foreach (var project in Model.ProjectEntities)
+            {
+                <option value="@project.Id">@project.Title</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <select asp-for="Log.DurationInMinutes" asp-items="Model.Numbers" class="custom-select">
+            <option value="">Consumed time in minutes</option>
+            <span asp-validation-for="Log.DurationInMinutes"></span>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Log.Title"></label>
+        <input asp-for="Log.Title" class="form-control is-invalid" id="validationServer03" placeholder="Project Title"  required>
+        <span asp-validation-for="Log.Title"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Log.Details"></label>
+        <textarea asp-for="Log.Details" class="form-control is-invalid" id="validationServer03" rows="3"></textarea>
+        <span asp-validation-for="Log.Details"></span>
+    </div>
+
+    <div class="mb-3">
+        <button class="btn btn-success" type="submit">Add</button>
+    </div>
+
+</form>

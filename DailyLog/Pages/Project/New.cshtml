@@ -1,0 +1,54 @@
+﻿@page
+@model DailyLog.NewModel
+@{
+    ViewData["Title"] = "New";
+}
+
+<h1>Add New Project</h1>
+<form class="was-validated" method="post" enctype="multipart/form-data">
+    <input hidden asp-for="Project.Id" />
+    <input hidden asp-for="Project.ImagePath" />
+    <div class="mb-3">
+        <label asp-for="Project.Title"></label>
+        <input asp-for="Project.Title" class="form-control is-invalid" id="validationServer03" placeholder="Project Title" value="Project Title" required>
+        <span asp-validation-for="Project.Title"></span>
+    </div>
+
+
+    <div class="custom-file">
+        <input asp-for="Photo" accept="image/*" class="custom-file-input" id="validatedCustomFile" required>
+        <label class="custom-file-label" for="validatedCustomFile">Choose Photo</label>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-success" type="submit">Add</button>
+    </div>
+
+</form>
+
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+            $('.custom-file-input').on("change",
+                function() {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).next('.custom-file-label').html(fileName);
+                });
+        });
+
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+}

@@ -1,0 +1,28 @@
+﻿@page
+@model DailyLog.ProjectModel
+@{
+    ViewData["Title"] = "Project";
+}
+
+<h1 class="text-success">Projects</h1>
+<br/>
+<a class="btn btn-success" asp-page="/project/new">Add New Project</a>
+
+<div class="row">
+    @foreach (var project in Model.ProjectEntities)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/images/@project.ImagePath??hero.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                <div class="card-body">
+                    <strong class="d-inline-block mb-2 text-success">@project.Title</strong>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-secondary" asp-route-id="@project.Id" asp-page="Project/Update">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

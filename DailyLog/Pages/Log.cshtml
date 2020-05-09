@@ -1,0 +1,40 @@
+﻿@page 
+@model DailyLog.LogModel
+@{
+    ViewData["Title"] = "Log";
+}
+<h1 class="text-success">Logs</h1>
+<a class="btn btn-success" asp-page="/Log/Add">add new log</a>
+@foreach (var log in Model.LogEntities)
+{
+    @if (log.IsActive) {
+<ul class="list-group-item">
+    <li class="list-group-item-action">
+        <div class="">
+            <h5 class="mt-0 mb-1">@log.Title</h5>
+            <hr />
+            <p>@log.Details </p>
+            <input hidden asp-for="@log.Id" />
+            @{
+                if (log.DateCreatedGmt.Day == DateTime.Now.Day)
+                {
+                    <a asp-route-id="@log.Id" asp-page="/Log/Add">Edit</a>
+                    <a asp-page-handler="DeleteLog" asp-route-id="@log.Id">Delete</a>
+                }
+
+            }
+        </div>
+    </li>
+</ul>
+    }
+}
+<div>
+    <ul class="pagination">
+        @for (var i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                <a asp-page="/Log" asp-route-currentpage="@i" class="page-link">@i</a>
+            </li>
+        }
+    </ul>
+</div>
